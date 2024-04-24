@@ -1,20 +1,54 @@
- 
- 
- import { Button } from "@mui/material"
-export function ThemeButton({children,iconIndex,sx,onClick}) {
 
-    
+
+import { Box, Button } from "@mui/material"
+export function ThemeButton({ children, iconIndex, sx, onClick }) {
+
+
     return (
         <>
-            <Button onClick={onClick} variant="contained" sx={{ width: '100%', borderRadius: '20px',  border: '1px solid black', background: '#ffff', color: "black", ":hover": { backgroundColor: "#fff", color: 'black' },...sx }}>
-                <div style={{alignItems:'center', width: '100%',  display: 'flex',  }}>
-                    <div style={{ width: '30px',  background: '#ffff', borderRadius: '50px', border: "2px solid #49defc", }}>{iconIndex}
-                    </div>
-                    <div style={{ paddingLeft:'10px', textTransform: 'none', fontSize: "14px", width: '100%', background: '#ffff', borderRadius: '20px', textAlign:'left' }}>
-                        {children}
-                    </div>
-                </div>
-            </Button>
+            <Box
+                onClick={onClick}
+                sx={{
+                    width: '100%',
+                    borderRadius: '25px',
+                    border: '1px solid black',
+                    background: '#ffff',
+                    color: "black",
+                    cursor: "pointer",
+                    ...sx
+                }}>
+                <Box sx={{ p: 1, display: "flex" }}>
+                    <Box sx={{ width: "35px" }}>
+                        <Box sx={{
+                            width: '30px',
+                            height: "30px",
+                            borderRadius: '100%',
+                            border: "2px solid #49defc",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            lineHeight: 0
+                        }}>
+                            {iconIndex}
+                        </Box>
+                    </Box>
+                    <Box sx={{
+                        flexGrow: 1,
+                        display: "flex",
+                        alignItems: "center"
+                    }}>
+                        <Box sx={{
+                            paddingLeft: '10px',
+                            textTransform: 'none',
+                            fontSize: "14px",
+                            width: '100%',
+                            textAlign: 'left',
+                        }}>
+                            {children}
+                        </Box>
+                    </Box>
+                </Box>
+            </Box>
         </>
     )
 }
